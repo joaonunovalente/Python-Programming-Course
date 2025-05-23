@@ -1,20 +1,30 @@
 import string
+import operator
 
 # Write your solution here
 def run(program: list) -> list:
     output_list: list = []
 
-    # Dictionary with all variables set to 0
-    aDict = dict.fromkeys(string.ascii_uppercase, 0)
+    # Dictionary with all charaters set to 0
+    characters: dict = dict.fromkeys(string.ascii_uppercase, 0)
     # List with all commads
-    commands = ['PRINT', 'MOV', 'ADD', 'SUB', 'MUL', 'END']
+    commands: list = ['PRINT', 'MOV', 'ADD', 'SUB', 'MUL', 'END']
     # Dictionary of variables
     line_variables: dict = {}
+    # Dictionary of operators
+    ops: dict= {
+        '==': operator.eq,
+        '!=': operator.ne,
+        '>' : operator.gt,
+        '>=': operator.ge,
+        '<' : operator.lt,
+        '<=': operator.le,
+    }
 
     # Extract the line varibles first
     i = 0
     for program_line in program:
-        part = program_line.split()
+        part: list = program_line.split()
         if part[0][-1] == ":":
             line_variables[part[0][:-1]] = i
         i += 1        
@@ -24,52 +34,62 @@ def run(program: list) -> list:
         program_line = program[i]
         part = program_line.split()
         command = part[0] 
-        print(i)
         print(part)
-        print(command)
-
-
+        if len(part) == 2 and part[0] == 'PRINT':
+            if part[1].isnumeric():
+                pass
+            else:
+                part[1] = characters[part[1]]            
 
         if len(part) == 3:
             if part[2].isnumeric():
                 pass
             else:
-                part[2] = aDict[part[2]]
+                part[2] = characters[part[2]]
+            
+        if len(part) == 6:
+            if part[3].isnumeric():
+                pass
+            else:
+                part[3] = characters[part[3]]
+
         
         if command == 'MOV':
-            aDict[part[1]] = int(part[2])
+            characters[part[1]] = int(part[2])
         elif command == 'ADD':
-            aDict[part[1]] = int(aDict[part[1]]) + int(part[2])
+            characters[part[1]] = int(characters[part[1]]) + int(part[2])
         elif command == 'SUB':
-            aDict[part[1]] = int(aDict[part[1]]) - int(part[2])
+            characters[part[1]] = int(characters[part[1]]) - int(part[2])
         elif command == 'MUL':
-            aDict[part[1]] = int(aDict[part[1]]) * int(part[2])
+            characters[part[1]] = int(characters[part[1]]) * int(part[2])
         elif command == 'PRINT':
-            output_list.append(aDict[part[1]])
+            output_list.append(int(part[1]))
         elif command == 'IF':
-            print("----------------------\n")
-            print(part[2])
-            match part[2]:
-                case "==":
-                    if part[1] == part[3]:
-                        i = line_variables[part[3]]
-                case "!=":
-                    if part[1] != part[3]:
-                        i = line_variables[part[3]]
-                case ">=":
-                    print("ola")
-                    if part[1] >= part[3]:
-                        i = line_variables[part[5]]
-                    else:
-                        pass 
-        
+            if part[2] == '==':
+                if characters[part[1]] == int(part[3]):
+                    i = line_variables[part[5]]
+            if part[2] == '!=':
+                if characters[part[1]] != int(part[3]):
+                    i = line_variables[part[5]]
+            if part[2] == '>':
+                if characters[part[1]] > int(part[3]):
+                    i = line_variables[part[5]]    
+            if part[2] == '>=':
+                if characters[part[1]] >= int(part[3]):
+                    i = line_variables[part[5]]  
+            if part[2] == '<':
+                if characters[part[1]] < int(part[3]):
+                    i = line_variables[part[5]]    
+            if part[2] == '<=':
+                if characters[part[1]] <= int(part[3]):
+                    i = line_variables[part[5]]                                                                    
+
         elif command == 'END':
             break
         elif command == 'JUMP':
-            pass
-            # i = line_variables[part[1]]
-        
-        print(aDict)
+            i = line_variables[part[1]]
+
+        print(characters)
         
         i += 1
 
@@ -77,17 +97,31 @@ def run(program: list) -> list:
     return output_list
 
 if __name__ == "__main__":
-    program2 = []
-    program2.append("MOV A 1")
-    program2.append("MOV B 10")
-    program2.append("begin:")
-    program2.append("IF A >= B JUMP quit")
-    program2.append("PRINT A")
-    program2.append("PRINT B")
-    program2.append("ADD A 1")
-    program2.append("SUB B 1")
-    program2.append("JUMP begin")
-    program2.append("quit:")
-    program2.append("END")
-    result = run(program2)
+    program4 = []
+    program4.append("MOV N 50")
+    program4.append("PRINT 2")
+    program4.append("MOV A 3")
+    program4.append("begin:")
+    program4.append("MOV B 2")
+    program4.append("MOV Z 0")
+    program4.append("test:")
+    program4.append("MOV C B")
+    program4.append("new:")
+    program4.append("IF C == A JUMP error")
+    program4.append("IF C > A JUMP over")
+    program4.append("ADD C B")
+    program4.append("JUMP new")
+    program4.append("error:")
+    program4.append("MOV Z 1")
+    program4.append("JUMP over2")
+    program4.append("over:")
+    program4.append("ADD B 1")
+    program4.append("IF B < A JUMP test")
+    program4.append("over2:")
+    program4.append("IF Z == 1 JUMP over3")
+    program4.append("PRINT A")
+    program4.append("over3:")
+    program4.append("ADD A 1")
+    program4.append("IF A <= N JUMP begin")
+    result = run(program4)
     print(result)
