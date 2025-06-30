@@ -1,6 +1,14 @@
 # Add the requested members to the class below:
 
 class City:
+    postcodes: dict = {
+        "Turku": "20100",
+        "Tampere": "33100",
+        "Rovaniemi": "96100",
+        "Oulu": "90100",
+        "Helsinki": "00100",
+    }
+
     def __init__(self, name: str, population: int):
         self.__name = name
         self.__population = population
