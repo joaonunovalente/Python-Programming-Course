@@ -6,7 +6,9 @@ class Book:
         self.genre = genre
         self.year = year
 
-if __name__ == "__main__":
+
+
+if __name__ == "__main":
     python = Book("Fluent Python", "Luciano Ramalho", "programming", 2015)
     everest = Book("High Adventure", "Edmund Hillary", "autobiography", 1956)
 

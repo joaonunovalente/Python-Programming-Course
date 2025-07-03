@@ -3,7 +3,6 @@ def double_items(numbers: list[int]) -> list[int]:
     new_list: list[int] = []
     for number in numbers:
         new_list.append(number * 2)
-        
     return new_list
     
 

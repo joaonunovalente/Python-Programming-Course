@@ -27,4 +27,4 @@ if __name__ == "__main__":
     ]
 
     print(block_correct(sudoku, 0, 0))
-    print(block_correct(sudoku, 1, 2))
+    # print(block_correct(sudoku, 1, 2))

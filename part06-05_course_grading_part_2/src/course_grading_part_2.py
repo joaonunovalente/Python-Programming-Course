@@ -13,11 +13,12 @@ def read_data_from_file(filename: str) -> dict:
 
     return dictionary
 
-
-def find_grade(exercise_points: list, exam_points: list) -> int:
-    exercise_points_total = int(sum(map(int, exercise_points)) * 10 / 40)
+def find_grade(exercises_points: list, exam_points: list) -> int:
+    exercises_points_total = int(sum(map(int, exercises_points)) * 10 / 40)
     exam_points_total = sum(map(int, exam_points))
-    total = exercise_points_total + exam_points_total
+
+    total = exercises_points_total + exam_points_total
+    # print(total)
 
     if total < 15:
         grade = 0
@@ -39,13 +40,12 @@ def printing(student_dictionary, exercise_dictionary, exam_points_dictionary):
     for id, values in student_dictionary.items():
         name = values[0]
         course = values[1]
-        execise_points_list = exercise_dictionary[id]
-        exam_points_list = exam_points_dictionary[id]
-        grade = find_grade(execise_points_list, exam_points_list)
+        grade = find_grade(exercise_dictionary[id], exam_points_dictionary[id])
 
         print(name, course, grade)
-    return
 
+
+    return
 
 def main():
     if True:

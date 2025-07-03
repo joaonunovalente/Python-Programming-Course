@@ -188,7 +188,7 @@ suitcase.weight()
                 suitcase = Suitcase(25)
                 item = Item("ABC Book", 2)
                 suitcase.add_item(item)
-                weight = suitcase.suitcase_weight()
+                weight = suitcase.weight()
 
             except Exception as e:
                 self.assertTrue(False, f'Executing the following code\n{code}\n threw an error\n{e}\nIs method weight(self) defined?')
@@ -213,7 +213,7 @@ weight = suitcase.weight()
             suitcase.add_item(item2)
             item3 = Item("Sledgehammer", 2)
             suitcase.add_item(item3)
-            weight = suitcase.suitcase_weight()
+            weight = suitcase.weight()
             self.assertTrue(weight == 4, f'When executing the following code\n{code}\nmethod should return 4, but the return value was {weight}')
 
         @points('8.item_suitcase_hold_part4')

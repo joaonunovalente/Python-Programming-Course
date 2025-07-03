@@ -23,6 +23,7 @@ def books_of_genre(books: list,  genre: str) -> list:
         if book.genre == genre:
             output_list.append(book)
 
+
     return output_list
 
 if __name__ == "__main__":

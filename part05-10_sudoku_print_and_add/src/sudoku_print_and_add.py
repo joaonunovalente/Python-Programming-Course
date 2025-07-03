@@ -20,29 +20,6 @@ def print_sudoku(sudoku):
             count2 = 0
             print()
         print()
-
-
-
-def print_sudoku(sudoku):
-    count2 = 0
-    for row in sudoku:
-        count2 += 1
-
-        count = 0
-        for element in row:
-            if count >= 3:
-                print(" ", end="")
-                count = 0
-
-            if element == 0:
-                print("_", end=" ")
-            else:
-                print(element, end=" ")
-            count += 1
-        if count2 >= 3:
-            count2 = 0
-            print()
-        print()
         
 
 def add_number(sudoku: list, row_no: int, column_no: int, number:int):

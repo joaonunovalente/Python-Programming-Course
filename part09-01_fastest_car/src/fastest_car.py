@@ -18,7 +18,8 @@ def fastest_car(cars: list) -> str:
         if car.top_speed > top_speed:
             top_speed = car.top_speed
             make = car.make
-            
+
+
     return str(make)
 
 

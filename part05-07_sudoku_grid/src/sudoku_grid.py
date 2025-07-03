@@ -46,7 +46,6 @@ def sudoku_grid_correct(sudoku: list) -> bool:
 
     if False in result:
         return False
-    for
     
 
     return True
