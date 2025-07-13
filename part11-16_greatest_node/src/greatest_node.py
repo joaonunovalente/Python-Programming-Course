@@ -33,8 +33,6 @@ if __name__ == "__main__":
     tree.left_child = Node(3)
     tree.left_child.left_child = Node(5)
     tree.left_child.right_child = Node(8)
-
-    
     
     tree.right_child = Node(4)
     tree.right_child.right_child = Node(11)
