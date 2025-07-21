@@ -21,11 +21,14 @@ while True:
             exit()
     
     window.fill((0, 0, 0))
+    ### Formula
+    # x = center_x + cos(angle + offset) * radius - half_width
+    # y = center_y + sin(angle + offset) * radius - half_height
+    # offset = 2π * i / number = 2π * i / 10 = π * i / 5
     for i in range(0,10):
         x = 320+math.cos(angle + i * math.pi/5)*100-robot.get_width()/2
         y = 240+math.sin(angle + i * math.pi/5)*100-robot.get_height()/2
         window.blit(robot, (x, y))
-        print(angle + i * 1,angle + i * 1)
     pygame.display.flip()
     angle += 0.01
 
