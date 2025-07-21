@@ -5,7 +5,7 @@ window = pygame.display.set_mode((640, 480))
 
 robot = pygame.image.load("robot.png")
 x = 0
-y = 480-robot.get_height()
+y = 480 - robot.get_height()
 
 to_right = False
 to_left = False
