@@ -37,6 +37,5 @@ while True:
         velocity_x2 = -velocity_x2
     elif velocity_x2 < 0 and x2 <= 0:
         velocity_x2 = -velocity_x2
-
         
     clock.tick(60)
