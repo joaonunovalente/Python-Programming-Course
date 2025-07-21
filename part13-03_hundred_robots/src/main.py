@@ -1,4 +1,3 @@
-from random import randint
 import pygame
 
 pygame.init()
@@ -11,12 +10,14 @@ robot = pygame.image.load("robot.png")
 robot_width = robot.get_width()
 robot_height = robot.get_height()
 
-for i in range(0,1000):
-    x = randint(0, 590)
-    y = randint(0, 390)
-    window.blit(robot, (x, y))
-
-
+height = 100
+for i in range(0, 10):
+    width = 50 + i * 10
+    for ii in range(0,10):
+        window.blit(robot, (width, height))
+        width += 40
+    height += 20
+    
 pygame.display.flip()
 
 while True:

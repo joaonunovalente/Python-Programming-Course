@@ -12,11 +12,8 @@ robot_height = robot.get_height()
 
 height = 100
 for i in range(0, 10):
-    width = 50 + i * 10
-    for ii in range(0,10):
-        window.blit(robot, (width, height))
-        width += 40
-    height += 20
+    width = 50 + i * 50
+    window.blit(robot, (width, height))
     
 pygame.display.flip()
 

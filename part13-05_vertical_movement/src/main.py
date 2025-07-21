@@ -13,8 +13,7 @@ clock = pygame.time.Clock()
 
 pygame.display.flip()
 
-velocity_x = 2
-velocity_y = 0
+velocity_y = 2
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -24,20 +23,13 @@ while True:
     window.blit(robot, (x, y))
     pygame.display.flip()
 
-    x += velocity_x
     y += velocity_y
 
-    if velocity_x > 0 and x + robot_width >= 640:
-        x = 640 - robot_width
-        velocity_x, velocity_y = 0, 2
-    elif velocity_y > 0 and y + robot_height >= 480:
-        y = 480 - robot_height
-        velocity_x, velocity_y = -2, 0
-    elif velocity_x < 0 and x <= 0:
-        x = 0
-        velocity_x, velocity_y = 0, -2
+    if velocity_y > 0 and y + robot_height >= 480:
+        velocity_y =  -velocity_y
+
     elif velocity_y < 0 and y <= 0:
-        y = 0
-        velocity_x, velocity_y = 2, 0
-        
+        velocity_y = -velocity_y
+
+
     clock.tick(60)
