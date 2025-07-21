@@ -30,10 +30,10 @@ while True:
         velocity_x =  -velocity_x
     elif velocity_x < 0 and x <= 0:
         velocity_x = -velocity_x
+        
     if velocity_y > 0 and y + robot_height >= 480:
         velocity_y =  -velocity_y
     elif velocity_y < 0 and y <= 0:
         velocity_y = -velocity_y
-
 
     clock.tick(60)
