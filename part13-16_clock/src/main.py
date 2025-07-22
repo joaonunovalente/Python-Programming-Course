@@ -39,6 +39,7 @@ while True:
     # Show time clock arrows
     window.fill((200, 200, 200))
     pygame.draw.circle(window, (0, 0, 0), (window.get_width() / 2, window.get_height() / 2), 150, 3)
+    pygame.draw.circle(window, (0, 0, 0), (window.get_width() / 2, window.get_height() / 2), 5)
     pygame.draw.line(window, (50, 50, 200), (window.get_width() / 2, window.get_height() / 2), (x_seconds, y_seconds), 1)
     pygame.draw.line(window, (50, 50, 200), (window.get_width() / 2, window.get_height() / 2), (x_minutes, y_minutes), 3)
     pygame.draw.line(window, (50, 50, 200), (window.get_width() / 2, window.get_height() / 2), (x_hours, y_hours), 5)
