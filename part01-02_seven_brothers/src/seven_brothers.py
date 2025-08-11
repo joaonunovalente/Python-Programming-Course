@@ -1,8 +1,8 @@
 # Fix the code
-print("Aapo")
-print("Eero")
-print("Juhani")
-print("Lauri")
 print("Simeoni")
-print("Timo")
+print("Juhani")
+print("Eero")
+print("Lauri")
+print("Aapo")
 print("Tuomas")
+print("Timo")

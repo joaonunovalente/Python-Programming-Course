@@ -12,7 +12,7 @@ exercise = 'src.letter_square'
 class LetterSquareTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        with patch('builtins.input', side_effect=[1] + ["2"] * 10):
+        with patch('builtins.input', side_effect=["1"] + ["2"] * 10):
            cls.module = load_module(exercise, 'en')
 
     def test_2(self):
@@ -45,11 +45,11 @@ block
         with patch('builtins.input', side_effect=[str(number), AssertionError("Input is asked too many times.") ], ) as prompt:
             reload_module(self.module)
             output_all =  get_stdout()
-            output = output_all.split('\n')  
+            output = output_all.split('\n')
 
             expected = [
-                "CCCCC", 
-                "CBBBC", 
+                "CCCCC",
+                "CBBBC",
                 "CBABC",
                 "CBBBC",
                 "CCCCC"
@@ -61,28 +61,28 @@ block
             for i in range(0, len(expected)):
                 self.assertEqual(expected[i], output[i].strip(), f"The print out on {i+1} row is incorrect when the input is {number}, row should be\n{expected[i]}\nThe whole print out was\n{output[0]}")
 
-        def test_4(self):
-            number = 4
-            with patch('builtins.input', side_effect=[str(number), AssertionError("Input is asked too many times.") ], ) as prompt:
-                reload_module(self.module)
-                output_all =  get_stdout()
-                output = output_all.split('\n')  
+    def test_4(self):
+        number = 4
+        with patch('builtins.input', side_effect=[str(number), AssertionError("Input is asked too many times.") ], ) as prompt:
+            reload_module(self.module)
+            output_all =  get_stdout()
+            output = output_all.split('\n')  
 
-                expected = [
-                    "DDDDDDD"
-                    "DCCCCCD", 
-                    "DCBBBCD", 
-                    "DCBABCD",
-                    "DCBBBCD",
-                    "DCCCCCD",
-                    "DDDDDDD"
-                ]
+            expected = [
+                "DDDDDDD",
+                "DCCCCCD", 
+                "DCBBBCD", 
+                "DCBABCD",
+                "DCBBBCD",
+                "DCCCCCD",
+                "DDDDDDD"
+            ]
 
-                self.assertTrue(len(output_all)>0, f"Your program does not print out anything with the input {number}")
-                self.assertEqual(len(expected), len(output), f"Your program should print out {len(expected)} rows with the input {number}, now it prints out {len(output)} rows:\n{output_all}")
+            self.assertTrue(len(output_all)>0, f"Your program does not print out anything with the input {number}")
+            self.assertEqual(len(expected), len(output), f"Your program should print out {len(expected)} rows with the input {number}, now it prints out {len(output)} rows:\n{output_all}")
 
-                for i in range(0, len(expected)):
-                    self.assertEqual(expected[i], output[i].strip(), f"The print out on {i+1} row is incorrect when the input is {number}, row should be\n{expected[i]}\nThe whole print out was\n{output[0]}")
+            for i in range(0, len(expected)):
+                self.assertEqual(expected[i], output[i].strip(), f"The print out on {i+1} row is incorrect when the input is {number}, row should be\n{expected[i]}\nThe whole print out was\n{output[0]}")
 
 
 if __name__ == '__main__':

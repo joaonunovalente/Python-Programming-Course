@@ -6,8 +6,6 @@ def largest():
             if int(line) > largest_number:
                 largest_number = int(line)
     
-
-    
     return largest_number
 
 if __name__ == "__main__":

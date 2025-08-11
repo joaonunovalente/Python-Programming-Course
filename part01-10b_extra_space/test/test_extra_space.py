@@ -31,7 +31,7 @@ class ExtraSpaceTest(unittest.TestCase):
         self.assertEqual(8, len(output), f"Your programs output contains incorrect amount of rows ({len(output)}), Output should contain exactly 8 rows. Make sure that you print also empty rows.")
         for i in range(0, 8):
             if i in [3, 4, 5]:
-                self.assertEqual(' ', output[i][0], f"Output in row {i+1} is incorrect, Output was:\n{output[i]}\nPlease note that there is a space at the beginning of the row!")    
+                self.assertEqual(' ', output[i][0], f"Output in row {i+1} is incorrect, Output was:\n{output[i]}\nPlease note that there should be a space at the beginning of the row!")
             self.assertEqual(expected[i], output[i].rstrip(), f"Output in row {i+1} is incorrect, it should be:\n{expected[i]}\nOutput was:\n{output[i]}")
 
     def test_print_2(self):

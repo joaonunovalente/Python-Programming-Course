@@ -1,12 +1,8 @@
-# Write your solution here
-
-number = int(input("Please type in a number:"))
-count1 = 1
-while count1 <= number:
-    count2 = 1
-
-    while count2 <= number:
-        print(f"{count1} x {count2} = {count1 * count2}")
-        count2 += 1
-    
-    count1 += 1
+number = int(input("Please type in a number: "))
+counter1 = 1
+while counter1 <= number:
+    counter2 = 1
+    while counter2 <= number:
+        print(f"{counter1} x {counter2} = {counter1*counter2}")
+        counter2 += 1
+    counter1 += 1

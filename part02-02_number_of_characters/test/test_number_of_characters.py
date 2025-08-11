@@ -27,6 +27,7 @@ class NumberOfCharactersTest(unittest.TestCase):
                 self.assertTrue(len(output) == 2, "With input {}, instead of two rows, your program's output is in {} rows".format(word, len(output)))
                 self.assertTrue(output[0].find(str(len(word))) > -1, "Your program's output\n{}\ndoes not contain correct number of characters {} with input {}".format(output[0], len(word), word))
                 self.assertEqual(sanitize(output[1]), "Thank you!", "At the end of the execution of the program, your program did not print out row 'Thank you! with input " +word)
+                self.assertTrue(word in output_all, "Your program's output\n{}\ndoes not contain the word used as input {}".format(output_all, word))
 
     def test_single_character(self):
         words = "a X z".split(" ")

@@ -58,7 +58,7 @@ block. The following row should be moved:
         print_persons("file1.json")
         code = 'print_persons("file1.json")'
         output_all = get_stdout().replace(output_at_start, '', 1)
-        output = [l for l in output_all.split("\n") if len(l)>0 ]
+        output = [l.strip() for l in output_all.split("\n") if len(l)>0 ]
         
         correct = """Peter Pythons 27 years (coding, knitting)
 Jean Javanese 24 years (coding, rock climbing, reading)"""
@@ -77,7 +77,7 @@ Jean Javanese 24 years (coding, rock climbing, reading)"""
         print_persons("file2.json")
         code = 'print_persons("file2.json")'
         output_all = get_stdout().replace(output_at_start, '', 1)
-        output = [l for l in output_all.split("\n") if len(l)>0 ]
+        output = [l.strip() for l in output_all.split("\n") if len(l)>0 ]
         
         correct = """Alf Newlyinventend 42 years (karate)
 Frances Fictious 52 years (running, martial arts)
@@ -97,7 +97,7 @@ Emily Paulson 4 years (puzzles)"""
         print_persons("file3.json")
         code = 'print_persons("file3.json")'
         output_all = get_stdout().replace(output_at_start, '', 1)
-        output = [l for l in output_all.split("\n") if len(l)>0 ]
+        output = [l.strip() for l in output_all.split("\n") if len(l)>0 ]
         
         correct = """Emerson Lawson 78 years (reading, running)
 Sammy Evans 32 years (algorithms, playing violin)
@@ -119,7 +119,7 @@ Gabe Webb 46 years (programming, spectator sports)"""
         print_persons("file4.json")
         code = 'print_persons("file4.json")'
         output_all = get_stdout().replace(output_at_start, '', 1)
-        output = [l for l in output_all.split("\n") if len(l)>0 ]
+        output = [l.strip() for l in output_all.split("\n") if len(l)>0 ]
         
         correct = """Jane Doe 100 years ()
 Sanna Marin 38 years (history, politics)

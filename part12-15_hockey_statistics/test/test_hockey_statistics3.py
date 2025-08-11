@@ -36,8 +36,8 @@ class HockeyStatistics3Test(unittest.TestCase):
             exp = """Jakub Vrana          WSH  25 + 27 =  52
 Jared McCann         PIT  14 + 21 =  35"""
 
-            for rivi in exp.split("\n"):
-                if not rivi in output:
+            for line in exp.split("\n"):
+                if not line in output:
                     self.fail(f"Your program should output line\n{line}\nwhen the program is executed with input\n{s(input_values)}\nNow the output was\n{output}")   
             
             not_expected = "John Klingberg       DAL   6 + 26 =  32"
